@@ -42,7 +42,7 @@ person:
     - config
     - postgres
   environment:
-     EUREKA_HOST: 120.24.36.69
+     EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
 #  ports:
@@ -55,7 +55,7 @@ some:
     - discovery
     - config
   environment:
-     EUREKA_HOST: 120.24.36.69
+     EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
 #  ports:
@@ -70,7 +70,7 @@ ui:
     - person
     - some
   environment:
-     EUREKA_HOST: 120.24.36.69
+     EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
@@ -86,7 +86,7 @@ monitor:
     - some
     - ui
   environment:
-     EUREKA_HOST: 120.24.36.69
+     EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
 #  ports:
