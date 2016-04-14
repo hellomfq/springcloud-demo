@@ -7,6 +7,7 @@ postgres:
 #  name: postgres
   image: postgres
   hostname: postgres
+  net: host
   volumes_from:
     - postgresdb
   ports:
@@ -18,6 +19,7 @@ postgres:
 discovery:
   image: "discovery:1.0.0-SNAPSHOT"
   hostname: discovery
+  net: host
 #  name: discovery
   ports:
    - "8761:8761"
@@ -25,6 +27,7 @@ discovery:
 config:
   image: "config:1.0.0-SNAPSHOT"
   hostname: config
+  net: host
 #  name: config
   links:
     - discovery
@@ -37,6 +40,7 @@ config:
 person:
   image: person:1.0.0-SNAPSHOT
   hostname: person
+  net: host
   links:
     - discovery
     - config
@@ -51,6 +55,7 @@ person:
 some:
   image: some:1.0.0-SNAPSHOT
   hostname: some
+  net: host
   links:
     - discovery
     - config
@@ -64,6 +69,7 @@ some:
 ui:
   image: ui:1.0.0-SNAPSHOT
   hostname: ui
+  net: host
   links:
     - discovery
     - config
@@ -79,6 +85,7 @@ ui:
 monitor:
   image: monitor:1.0.0-SNAPSHOT
   hostname: monitor
+  net: host
   links:
     - discovery
     - config
