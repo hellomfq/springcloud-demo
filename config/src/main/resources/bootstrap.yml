@@ -7,6 +7,7 @@ spring:
 eureka:
   instance:
     non-secure-port: ${server.port:8888} #3
+    preferIpAddress: true
     metadata-map:
       instanceId: ${spring.application.name}:${random.value} #4
   client:
