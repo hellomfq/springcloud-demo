@@ -3,10 +3,10 @@ server:
 
 eureka:
   instance:
-    hostname: discovery
+    net: host
     preferIpAddress: true
   client:
     register-with-eureka: false
     fetch-registry: false
     serviceUrl:
-          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+          defaultZone: http://120.24.36.69:${server.port}/eureka/
