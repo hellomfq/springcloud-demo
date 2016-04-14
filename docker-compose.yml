@@ -29,10 +29,8 @@ config:
 #  hostname: config
   net: host
 #  name: config
-  links:
-    - discovery
   environment:
-     EUREKA_HOST: discovery
+     EUREKA_HOST: 120.24.36.69
      EUREKA_PORT: 8761
   ports:
     - "8888:8888"
@@ -41,12 +39,8 @@ person:
   image: person:1.0.0-SNAPSHOT
 #  hostname: person
   net: host
-  links:
-    - discovery
-    - config
-    - postgres
   environment:
-     EUREKA_HOST: discovery
+     EUREKA_HOST: 120.24.36.69
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
@@ -56,11 +50,8 @@ some:
   image: some:1.0.0-SNAPSHOT
 #  hostname: some
   net: host
-  links:
-    - discovery
-    - config
   environment:
-     EUREKA_HOST: discovery
+     EUREKA_HOST: 120.24.36.69
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
 #  ports:
@@ -70,13 +61,8 @@ ui:
   image: ui:1.0.0-SNAPSHOT
 #  hostname: ui
   net: host
-  links:
-    - discovery
-    - config
-    - person
-    - some
   environment:
-     EUREKA_HOST: discovery
+     EUREKA_HOST: 120.24.36.69
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
@@ -86,14 +72,8 @@ monitor:
   image: monitor:1.0.0-SNAPSHOT
  # hostname: monitor
   net: host
-  links:
-    - discovery
-    - config
-    - person
-    - some
-    - ui
   environment:
-     EUREKA_HOST: discovery
+     EUREKA_HOST: 120.24.36.69git
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
