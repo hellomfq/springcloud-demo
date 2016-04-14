@@ -9,8 +9,8 @@ postgres:
   hostname: postgres
   volumes_from:
     - postgresdb
-#  ports: 
-#   - "5432:5432"
+  ports:
+   - "5432:5432"
   environment:
     - POSTGRES_USER=postgres
     - POSTGRES_PASSWORD=postgres
@@ -20,7 +20,7 @@ discovery:
   hostname: discovery
 #  name: discovery
   ports:
-   - "120.24.36.69:8761:8761"
+   - "8761:8761"
 
 config:
   image: "config:1.0.0-SNAPSHOT"
@@ -32,7 +32,7 @@ config:
      EUREKA_HOST: discovery
      EUREKA_PORT: 8761
   ports:
-    - "120.24.36.69:8888:8888"
+    - "8888:8888"
 
 person:
   image: person:1.0.0-SNAPSHOT
@@ -45,8 +45,8 @@ person:
      EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
-#  ports:
-#    - "8082:8082"
+  ports:
+    - "8082:8082"
     
 some:
   image: some:1.0.0-SNAPSHOT
@@ -74,7 +74,7 @@ ui:
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
-    - "120.24.36.69:80:80"
+    - "80:80"
 
 monitor:
   image: monitor:1.0.0-SNAPSHOT
@@ -90,4 +90,4 @@ monitor:
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
-    - "120.24.36.69:8989:8989"
+    - "8989:8989"
