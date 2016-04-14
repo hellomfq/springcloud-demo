@@ -20,7 +20,7 @@ discovery:
   hostname: discovery
 #  name: discovery
   ports:
-   - "8761:8761"
+   - "120.24.36.69:8761:8761"
 
 config:
   image: "config:1.0.0-SNAPSHOT"
@@ -31,8 +31,8 @@ config:
   environment:
      EUREKA_HOST: discovery
      EUREKA_PORT: 8761
-#  ports:
-#    - "8888:8888"
+  ports:
+    - "120.24.36.69:8888:8888"
 
 person:
   image: person:1.0.0-SNAPSHOT
@@ -74,7 +74,7 @@ ui:
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
-    - "80:80"
+    - "120.24.36.69:80:80"
 
 monitor:
   image: monitor:1.0.0-SNAPSHOT
@@ -89,5 +89,5 @@ monitor:
      EUREKA_HOST: discovery
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
-#  ports:
-#    - "8989:8989"
+  ports:
+    - "120.24.36.69:8989:8989"
