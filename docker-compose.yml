@@ -73,7 +73,7 @@ monitor:
  # hostname: monitor
   net: host
   environment:
-     EUREKA_HOST: 10.24.216.18git
+     EUREKA_HOST: 10.24.216.18
      EUREKA_PORT: 8761
      SPRING_PROFILES_ACTIVE: docker
   ports:
